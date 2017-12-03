@@ -39,3 +39,6 @@ from project.configs.i18n import *
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 from project.configs.static import *
+
+# Debug Toolbar Configurations
+from project.configs.debug_toolbar import *
