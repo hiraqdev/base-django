@@ -1,0 +1,8 @@
+Django
+django-dotenv
+psycopg2
+Pillow
+shortuuid
+Faker
+fabric
+django-debug-toolbar
