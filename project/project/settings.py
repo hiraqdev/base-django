@@ -42,3 +42,6 @@ from project.configs.static import *
 
 # Debug Toolbar Configurations
 from project.configs.debug_toolbar import *
+
+# Configure logging
+from project.configs.logging import *

@@ -13,11 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import logging
+
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
 
+logger = logging.getLogger('console')
 def hello(request):
     content = '''
     <html>
@@ -29,6 +32,7 @@ def hello(request):
         </body>
     </html>
     '''
+    logger.debug('test log from hello')
     return HttpResponse(content)
 
 urlpatterns = [
