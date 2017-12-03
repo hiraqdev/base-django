@@ -4,5 +4,5 @@ psycopg2
 Pillow
 shortuuid
 Faker
-fabric
+Fabric3
 django-debug-toolbar
