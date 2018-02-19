@@ -1,10 +1,18 @@
 # base-django
-Base configuration and structure when working with Django Web Framework
+Base configuration and structure when working with Django Web Framework.  Now,
+i'm just using Django 2.x version.
 
 # Python Version
 
-Recommended: `3.6.3`
+Recommended: `>= 3.6.x`
 
 # Django Version
 
-Recommended: `2.x.x`
+Recommended: `>= 2.x.x`
+
+# Dependency Tools
+
+- Automate Tasks: Fabric
+- Environment variables: django-dotenv
+- Debugging: Django Debug Toolbar
+- Fake data for test: Faker
