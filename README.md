@@ -19,5 +19,5 @@ Recommended: `>= 2.x.x`
 
 ## Environment Variable
 
-Please copy and renamce `env.sample` to `.env` and update all values based
+Please copy and rename `env.sample` to `.env` and update all values based
 on your needs.
