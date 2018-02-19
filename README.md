@@ -16,3 +16,8 @@ Recommended: `>= 2.x.x`
 - Environment variables: django-dotenv
 - Debugging: Django Debug Toolbar
 - Fake data for test: Faker
+
+## Environment Variable
+
+Please copy and renamce `env.sample` to `.env` and update all values based
+on your needs.
