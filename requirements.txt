@@ -1,6 +1,7 @@
 Django
 django-dotenv
 psycopg2
+psycopg2-binary
 Pillow
 shortuuid
 Faker
