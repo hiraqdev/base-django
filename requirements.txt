@@ -1,8 +1,10 @@
 Django
 django-dotenv
 psycopg2
+psycopg2-binary
 Pillow
 shortuuid
 Faker
 Fabric3
 django-debug-toolbar
+django-webpack-loader
