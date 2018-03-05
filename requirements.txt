@@ -7,3 +7,4 @@ shortuuid
 Faker
 Fabric3
 django-debug-toolbar
+django-webpack-loader
