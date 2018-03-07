@@ -1,0 +1,1 @@
+from memberships.services.registration import RegistrationService

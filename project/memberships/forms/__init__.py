@@ -1,0 +1,1 @@
+from memberships.forms.registration import RegistrationForm

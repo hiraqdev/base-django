@@ -8,6 +8,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'webpack_loader',
     'welcome.apps.WelcomeConfig',
+    'memberships.apps.MembershipsConfig',
 ]
 
 MIDDLEWARE = [
