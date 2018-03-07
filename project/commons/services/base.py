@@ -28,6 +28,9 @@ class BaseService(ABC):
     2. call - used to run this main service function.
     """
 
+    def __init__(self, validator):
+        self._validator = validator
+
     @abstractmethod
     def validate(self):
         """
