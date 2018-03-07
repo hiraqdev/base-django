@@ -1,1 +1,1 @@
-from tasks import migrations, tests, server, check
+from tasks import migrations, tests, server, check, npm
