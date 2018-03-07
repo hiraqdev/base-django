@@ -36,7 +36,7 @@ def hello(request):
     return HttpResponse(content)
 
 urlpatterns = [
-    path('welcome/', include('welcome.urls')),
+    path('', include('welcome.urls')),
     path('hello/', hello, name='hello'),
     path('admin/', admin.site.urls),
 ]
