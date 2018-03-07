@@ -10,3 +10,6 @@ class ServiceValidationError(BaseException):
 
 class ServiceCallerError(BaseException):
     pass
+
+class ServiceAuthError(BaseException):
+    pass
