@@ -7,11 +7,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  {% render_bundle 'bootstrap' extension='css' %}
 </head>
 <body>
-  <div id="app">
-    <hello></hello>
+  <div class="container-fluid">
+    <nav class="navbar navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Base Django2</a>
+    </nav>
+
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, world!</h1>
+      <p class="lead">
+        Now Base Django2 fully integrated with Vue.js and also Twitter Bootstrap with help from
+        Webpack.
+      </p>
+      <hr class="my-4">
+      <p>
+        The purpose of this skeleton is try to decrease developer's efforts when building
+        their apps.
+      </p>
+    </div>
   </div>
-  {% render_bundle 'main' 'js' %}
+  {% render_bundle 'bootstrap' 'js' %}
+  {% render_bundle 'index' 'js' %}
 </body>
 </html>

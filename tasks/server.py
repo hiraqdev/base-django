@@ -10,5 +10,4 @@ app_path = root_path + '/project'
 @task
 def run(ip='0.0.0.0', port='8080'):
     with lcd(app_path):
-        local('npm run build')
         local('./manage.py runserver {}:{}'.format(ip, port))
