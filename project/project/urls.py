@@ -37,6 +37,7 @@ def hello(request):
 
 urlpatterns = [
     path('', include('welcome.urls')),
+    path('memberships/', include('memberships.urls')),
     path('hello/', hello, name='hello'),
     path('admin/', admin.site.urls),
 ]

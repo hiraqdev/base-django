@@ -1,0 +1,1 @@
+from memberships.views.registration import RegistrationView
