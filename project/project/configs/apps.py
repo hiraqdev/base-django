@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'webpack_loader',
     'welcome.apps.WelcomeConfig',
     'memberships.apps.MembershipsConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
 MIDDLEWARE = [
