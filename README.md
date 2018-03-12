@@ -98,3 +98,13 @@ There is something you need to know about `Fabric` and `Npm`.
 - When you want to use fabric tasks, you need to go to root of your project.
 - When you want to use npm commands, you need to go to `project/` folder and execute npm command
 inside that folder.
+
+## Memberships
+
+I just added new functionalities for membership activities, they are :
+
+- Register
+- Login
+
+These codes available at `project/memberships` .  You can learn how to manage your application's
+module from this app.
