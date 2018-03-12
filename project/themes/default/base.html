@@ -1,0 +1,23 @@
+{% load render_bundle from webpack_loader %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    {% block page_title %}Base Django2{% endblock page_title %}
+  </title>
+  {% block page_css %}
+    {% render_bundle 'bootstrap' extension='css' %}
+  {% endblock page_css %}
+</head>
+<body {% block page_block %}{% endblock page_block %}>
+  {% block page_content %}{% endblock page_content %}
+
+  {% block page_js_bottom %}
+    {% render_bundle 'bootstrap' 'js' %}
+  {% endblock page_js_bottom %}
+</body>
+</html>
