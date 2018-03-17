@@ -15,21 +15,30 @@ I try to setup all common activities like :
 - Integration with Vue.js
 - Integration with Twitter Bootstrap
 - Integration with Django Debug Toolbar
+- Integration with Mailgun as `EmailBackend`
 - Faker
 - Fabric
 
-# Python Version
+---
+
+## Python Version
 
 Recommended: `>= 3.6.x`
 
-# Django Version
+---
+
+## Django Version
 
 Recommended: `>= 2.x.x`
+
+---
 
 ## Environment Variable
 
 Please copy and rename `env.sample` to `.env` and update all values based
 on your needs.
+
+---
 
 ## Vue.js Integration
 
@@ -53,6 +62,8 @@ modify `webpack.config.js`.
 **Refs** :
 
 - https://github.com/ezhome/django-webpack-loader
+
+---
 
 ## Twitter Bootstrap Integration
 
@@ -80,6 +91,8 @@ name from `webpack.config.js`.
 
 How to load ? You can see the example at `welcome/templates/welcome/index.html`.
 
+---
+
 ## Webpack
 
 By default all webpack's activities will run on `production` mode, you can modify this configuration at `package.json`
@@ -91,6 +104,8 @@ There is a technique called _code splitting_ from Webpack.  I'm using this techn
 between our main js app with vendors (like twitter bootstrap), and also using `ExtractTextPlugin`
 to extract css codes to separated files.
 
+---
+
 ## Fabric And NPM Command Lines
 
 There is something you need to know about `Fabric` and `Npm`.
@@ -98,6 +113,8 @@ There is something you need to know about `Fabric` and `Npm`.
 - When you want to use fabric tasks, you need to go to root of your project.
 - When you want to use npm commands, you need to go to `project/` folder and execute npm command
 inside that folder.
+
+---
 
 ## Memberships
 
@@ -108,3 +125,76 @@ I just added new functionalities for membership activities, they are :
 
 These codes available at `project/memberships` .  You can learn how to manage your application's
 module from this app.
+
+---
+
+## Email Using Mailgun
+
+There are two additional configurations :
+
+- MAILGUN_API_KEY
+- MAILGUN_DOMAIN
+
+You can get these configurations from your Mailgun's account dashboard.  Get all values
+and set in `.env` file.
+
+When you need to send an email you can use this code:
+
+```python
+from django.core import mail
+
+conn = mail.get_connection() # Will return custom mail backend instance
+mailer = mail.EmailMessage(
+    'test subject',
+    'test message',
+    'testfrom@shell.com',
+    ['to@mail.com'],
+    connection=conn
+)
+
+mailer.send()
+```
+
+To send html:
+
+```python
+from django.core import mail
+
+conn = mail.get_connection(as_html=True) # Will return custom mail backend instance
+mailer = mail.EmailMessage(
+    'test subject',
+    '<p>test message</p>',
+    'testfrom@shell.com',
+    ['to@mail.com'],
+    connection=conn
+)
+
+mailer.send()
+```
+
+Or, more simpler way:
+
+```python
+from django.core import mail
+
+# will send as text plain
+mail.send_mail(
+    'test subject',
+    'test message',
+    'testfrom@shell.com',
+    ['to@mail.com']
+)
+
+# will send as html
+conn = mail.get_connection(as_html=True) # Will return custom mail backend instance
+
+mail.send_mail(
+    'test subject',
+    '<p>my message</p>',
+    'testfrom@shell.com',
+    ['to@mail.com'],
+    connection=conn
+)
+```
+
+Ref: [https://docs.djangoproject.com/en/2.0/topics/email/](https://docs.djangoproject.com/en/2.0/topics/email/)

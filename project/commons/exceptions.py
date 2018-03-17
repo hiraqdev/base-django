@@ -13,3 +13,6 @@ class ServiceCallerError(BaseException):
 
 class ServiceAuthError(BaseException):
     pass
+
+class MailerConfigError(BaseException):
+    pass
