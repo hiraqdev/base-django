@@ -21,6 +21,16 @@ I try to setup all common activities like :
 
 ---
 
+## Usages
+
+- Clone this repo
+- Setup your `virtualenv`
+- `pip install -r requirements.txt`
+- Setup configurations, copy `env.sample` to `.env`
+- Ready to code!
+
+---
+
 ## Python Version
 
 Recommended: `>= 3.6.x`
