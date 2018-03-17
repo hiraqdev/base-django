@@ -62,3 +62,9 @@ from project.configs.debug_toolbar import *
 
 # Configure logging
 from project.configs.logging import *
+
+# Configure email backend
+from project.configs.mailer import *
+
+# Configure mailgun
+from project.configs.mailgun import *
