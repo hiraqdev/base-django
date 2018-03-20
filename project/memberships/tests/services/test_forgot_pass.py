@@ -34,10 +34,14 @@ class TestForgotPassService(TestCase):
 
     def setUp(self):
         self.faker = Faker()
+        mail.outbox = []
 
     def test_forgot_pass_success(self):
         member = self._register_user()
         payload = {'email': member.user.email}
+
+        # we should reset outbox list after registration
+        mail.outbox = []
 
         form = ForgotPassForm(payload)
         forgot_pass_service = ForgotPassService(payload, form)

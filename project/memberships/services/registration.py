@@ -1,5 +1,8 @@
 import shortuuid
 from django.contrib.auth.models import User
+from django.core import mail
+from django.conf import settings
+from django.urls import reverse
 
 from commons.services import BaseService
 from commons.exceptions import ServiceValidationError, ServiceCallerError
@@ -71,6 +74,27 @@ class RegistrationService(BaseService):
             member.activation_code = act_code
             member.save()
 
+            # prepare email content and params
+            activation_link = settings.BASE_URL + reverse('memberships:activation', kwargs={'id': user.id, 'code': act_code})
+            mail_content = """
+            <html>
+                <body>
+                Please click this link below : <br />
+                {link}
+                </body>
+            </html>
+            """.format(link=activation_link)
+
+            # sending an email for reset code link
+            mail_conn = mail.get_connection(as_html=True)
+            mail.send_mail(
+                'Membership - Activation',
+                mail_content,
+                settings.MEMBERSHIP_FROM_MAIL_ACTIVATION,
+                [user.email],
+                connection=mail_conn
+            )
+
             return member
         except Exception as exc:
-            raise ServiceCallerError(exc.message)
+            raise ServiceCallerError(str(exc))
