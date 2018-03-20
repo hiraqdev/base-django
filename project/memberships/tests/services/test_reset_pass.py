@@ -1,16 +1,19 @@
+import shortuuid
+
 from faker import Faker
 from django.test import TestCase
 from django.core import mail
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 
 from commons.exceptions import ServiceValidationError, ServiceCallerError
 
-from memberships.forms import RegistrationForm, ForgotPassForm
+from memberships.forms import RegistrationForm, ForgotPassForm, ResetPassForm
 from memberships.services import RegistrationService
-from memberships.services import ForgotPassService
+from memberships.services import ForgotPassService, ResetPassService
 from memberships.models import Member
 
-class TestForgotPassService(TestCase):
+class TestResetPassService(TestCase):
 
     def _register_user(self):
         password = self.faker.word()
@@ -32,10 +35,7 @@ class TestForgotPassService(TestCase):
         user.save()
         return member
 
-    def setUp(self):
-        self.faker = Faker()
-
-    def test_forgot_pass_success(self):
+    def _user_forgot(self):
         member = self._register_user()
         payload = {'email': member.user.email}
 
@@ -43,26 +43,27 @@ class TestForgotPassService(TestCase):
         forgot_pass_service = ForgotPassService(payload, form)
         forgot_pass = forgot_pass_service.validate().call()
 
-        self.assertTrue(forgot_pass)
-        self.assertEqual(len(mail.outbox), 1)
-        self.assertTrue(member.user.email in mail.outbox[0].to)
-
         member = Member.objects.get(user=member.user)
-        self.assertTrue(member.request_to_reset_pass)
-        self.assertIsNotNone(member.reset_code)
+        return member
 
-    def test_invalid_validation(self):
-        payload = {'email': 'testing'}
-        form = ForgotPassForm(payload)
-        forgot_pass_service = ForgotPassService(payload, form)
+    def setUp(self):
+        self.faker = Faker()
 
-        with self.assertRaises(ServiceValidationError):
-            forgot_pass_service.validate()
+    def test_success_to_reset(self):
+        member = self._user_forgot()
+        password = shortuuid.uuid()
 
-    def test_unknown_user(self):
-        payload = {'email': 'testing@test.com'}
-        form = ForgotPassForm(payload)
-        forgot_pass_service = ForgotPassService(payload, form)
+        payload = {
+            'email': member.user.email,
+            'new_password': password,
+            'new_password_confirm': password,
+            'reset_code': member.reset_code
+        }
 
-        with self.assertRaises(ServiceCallerError):
-            forgot_pass_service.validate().call()
+        form = ResetPassForm(payload)
+        reset_pass_service = ResetPassService(payload, form)
+        reset_pass = reset_pass_service.validate().call()
+        self.assertTrue(reset_pass)
+
+        user_authenticated = authenticate(email=member.user.email, password=password)
+        self.assertIsNotNone(user_authenticated)

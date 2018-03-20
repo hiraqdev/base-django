@@ -36,7 +36,7 @@ class ResetPassService(BaseService):
             user.save()
 
             # disable member request code states
-            member.request_to_reset_code = False
+            member.request_to_reset_pass = False
             member.reset_code = None
             member.save()
 

@@ -28,6 +28,10 @@ class TestLoginService(TestCase):
         registration = RegistrationService(payload, form_reg)
         member = registration.validate().call()
 
+        user = User.objects.get(email=email)
+        user.is_active = True
+        user.save()
+
         payload_login = {
             'email': email,
             'password': password
