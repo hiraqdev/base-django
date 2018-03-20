@@ -51,7 +51,8 @@ class ForgotPassService(BaseService):
                 'Membership - Request Reset Code',
                 mail_content,
                 settings.MEMBERSHIP_FROM_MAIL_RESET_CODE,
-                [user.email]
+                [user.email],
+                connection=mail_conn
             )
 
         except Member.DoesNotExist:
