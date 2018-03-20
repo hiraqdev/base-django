@@ -132,6 +132,9 @@ I just added new functionalities for membership activities, they are :
 
 - Register
 - Login
+- Forget Password
+- Reset Code
+- Activation
 
 These codes available at `project/memberships` .  You can learn how to manage your application's
 module from this app.
