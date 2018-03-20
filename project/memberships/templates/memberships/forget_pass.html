@@ -20,13 +20,13 @@
 
 {% block page_content %}
 <div class="container">
-  <form action="{% url 'memberships:login' %}" method="post">
+  <form action="{% url 'memberships:forget_pass' %}" method="post">
     {% csrf_token %}
     <div class="text-center">
       <img src="{% static 'statics/django-logo.png' %}" alt="Django" style="width: 100px">
     </div>
     <hr>
-    <h1 class="h3 font-weight-normal text-center">Login</h1>
+    <h1 class="h3 font-weight-normal text-center">Forget Password</h1>
     <hr>
     {% if messages %}
       {% for message in messages %}
@@ -50,12 +50,7 @@
       {% endfor %}
     {% endif %}
     <div class="form-group">
-      <label for="email">Email address</label>
       <input type="email" class="form-control form-control-lg" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" name="password">
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
   </form>

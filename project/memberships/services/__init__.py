@@ -1,2 +1,4 @@
 from memberships.services.registration import RegistrationService
 from memberships.services.login import LoginService
+from memberships.services.forgot_pass import ForgotPassService
+from memberships.services.reset_pass import ResetPassService

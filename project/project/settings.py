@@ -68,3 +68,6 @@ from project.configs.mailer import *
 
 # Configure mailgun
 from project.configs.mailgun import *
+
+# Configure memberships settings
+from project.configs.memberships import *

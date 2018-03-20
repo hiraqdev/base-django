@@ -1,6 +1,6 @@
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
-import os 
+import os
 from django.core.management.utils import get_random_secret_key
 
 def _parse_debug_env():
@@ -15,6 +15,9 @@ def _parse_allowed_hosts_env():
 SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = _parse_debug_env() 
+DEBUG = _parse_debug_env()
 
-ALLOWED_HOSTS = _parse_allowed_hosts_env() 
+ALLOWED_HOSTS = _parse_allowed_hosts_env()
+
+# Setup base url
+BASE_URL = os.environ.get('BASE_URL')
