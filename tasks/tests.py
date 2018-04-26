@@ -8,6 +8,6 @@ root_path = os.getcwd()
 app_path = root_path + '/project'
 
 @task
-def run(app='commons.tests'):
+def run(app='memberships.tests'):
     with lcd(app_path):
         local('./manage.py test {} --pattern="*.py"'.format(app))
