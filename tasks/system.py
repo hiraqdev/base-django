@@ -8,6 +8,6 @@ root_path = os.getcwd()
 app_path = root_path + '/project'
 
 @task
-def run():
+def check():
     with lcd(app_path):
         local('./manage.py check')
