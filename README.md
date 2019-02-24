@@ -13,7 +13,6 @@ I try to setup all common activities like :
 - Integration with Django Debug Toolbar
 - Integration with Mailgun as `EmailBackend`
 - Faker
-- Fabric
 
 ---
 
