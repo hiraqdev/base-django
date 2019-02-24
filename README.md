@@ -17,6 +17,12 @@ I try to setup all common activities like :
 
 ---
 
+## Requirements
+
+- Python: 3.7.x
+- Django: 2.7.x
+- [Pipenv](https://pipenv.readthedocs.io/en/latest/#install-pipenv-today)
+
 ## Usages
 
 - Clone this repo
@@ -24,20 +30,6 @@ I try to setup all common activities like :
 - `pipenv install`
 - Setup configurations, copy `env.sample` to `.env`
 - Ready to code!
-
----
-
-## Python Version
-
-Recommended: `>= 3.7.x`
-
----
-
-## Django Version
-
-Recommended: `>= 2.7.x`
-
----
 
 ## Environment Variable
 
