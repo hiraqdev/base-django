@@ -1,3 +1,4 @@
+# pylint: disable=unused-variable
 from faker import Faker
 from django.test import TestCase
 from django.contrib.auth.models import User
@@ -6,7 +7,6 @@ from commons.exceptions import ServiceValidationError, ServiceAuthError
 
 from memberships.forms import LoginForm, RegistrationForm
 from memberships.services import LoginService, RegistrationService
-from memberships.models import Member
 
 class TestLoginService(TestCase):
 
