@@ -12,7 +12,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'webpack_loader',
     'welcome.apps.WelcomeConfig',
     'memberships.apps.MembershipsConfig',
     'dashboard.apps.DashboardConfig',
