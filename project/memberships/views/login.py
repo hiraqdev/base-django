@@ -1,9 +1,9 @@
+# pylint: disable=unused-argument
 from django.views import View
 from django.views.generic.base import TemplateResponseMixin
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth import login
-from django.contrib.auth.models import User
 
 from commons.exceptions import ServiceValidationError, ServiceCallerError, ServiceAuthError
 from memberships.forms import LoginForm

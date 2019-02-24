@@ -1,3 +1,4 @@
+# pylint: disable=unused-argument, redefined-builtin, no-self-use, invalid-name
 from django.views import View
 from django.contrib import messages
 from django.shortcuts import redirect

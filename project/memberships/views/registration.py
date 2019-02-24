@@ -1,3 +1,4 @@
+# pylint: disable=unused-argument
 from django.views import View
 from django.views.generic.base import TemplateResponseMixin
 from django.contrib import messages
@@ -19,7 +20,7 @@ class RegistrationView(TemplateResponseMixin, View):
         service = RegistrationService(request.POST, form)
 
         try:
-            member = service.validate().call()
+            service.validate().call()
             messages.success(request, 'Your data has been saved')
         except ServiceValidationError:
             messages.warning(request, 'Invalid input fields, please try again')
