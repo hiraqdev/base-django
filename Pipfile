@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+django-dotenv = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+shortuuid = "*"
+django-debug-toolbar = "*"
+requests = "*"
+Django = "*"
+Pillow = "*"
+Faker = "*"
+Fabric = "*"
+
+[requires]
+python_version = "3.7"
